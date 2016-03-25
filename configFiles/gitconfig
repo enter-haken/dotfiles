@@ -1,0 +1,7 @@
+[user]
+	name = Jan Frederik Hake
+	email = jan_hake@gmx.de
+[core]
+	editor = vim
+[push]
+	default = simple
