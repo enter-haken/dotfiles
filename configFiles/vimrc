@@ -1,0 +1,62 @@
+" set nocompatible
+filetype off
+
+set wildchar=<Tab> wildmenu wildmode=full
+
+set number
+
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
+
+" Umlaute
+set termencoding=utf8
+set enc=utf8
+set fileencoding=utf8
+
+highlight Normal guifg=grey guibg=black
+colorscheme jellybeans
+
+syntax on
+
+set expandtab
+set cindent
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+set autoindent
+let g:airline#extensions#tabline#enabled = 1
+
+set rtp+=~/.vim/bundle/vundle
+call vundle#begin()
+
+Plugin 'gmarik/vundle'
+
+" === Plugins! ===
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim' 
+Plugin 'Raimondi/delimitMate'
+Plugin 'bling/vim-airline'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-scripts/taglist.vim'
+
+Plugin 'scrooloose/syntastic'
+
+let g:syntastic_check_on_open=1
+
+call vundle#end()
+
+filetype plugin indent on
+
+" == Without this setting cd is impossible
+" http://superuser.com/questions/401413/cant-open-folders-in-linux-nerdtree-vim
+let NERDTreeDirArrows=0
+
+nmap <F12> :NERDTreeToggle<CR>
+nmap <F11> :NERDTreeFind<CR>
+nmap <F10> :%!js-beautify -f -<CR>
+nmap <C-TAB> :bNext<CR>
