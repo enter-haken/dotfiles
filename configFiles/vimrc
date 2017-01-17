@@ -43,12 +43,17 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'bling/vim-airline'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-scripts/taglist.vim'
-
+Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/syntastic'
+Plugin 'mxw/vim-jsx'
 
 let g:syntastic_check_on_open=1
 
 call vundle#end()
+
+let g:jsx_ext_required = 0 
+let g:syntastic_javascript_checkers = ['eslint']
+
 
 filetype plugin indent on
 
