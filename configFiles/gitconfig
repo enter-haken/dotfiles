@@ -5,3 +5,7 @@
 	editor = vim
 [push]
 	default = simple
+[alias]
+	unstage = reset HEAD --
+	glog = log --graph --oneline --all
+	reset = checkout HEAD --
