@@ -1,4 +1,4 @@
 # see /etc/conky/conky_no_x11.conf
 
 TEXT
-UP: ${upspeed enp2s0} | DOWN: ${downspeed enp2s0} | CPU: ${execi 8 sensors | grep temp1 | head -n 2 | tail -n 1 | awk '{ print $2}'} | ${time %d}.${time %m}.${time %Y} ${time %H}:${time %M} 
+${execi 8 bin/battery_power.sh} | ${time %d}.${time %m}.${time %Y} ${time %H}:${time %M} 

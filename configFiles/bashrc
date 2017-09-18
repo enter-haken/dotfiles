@@ -16,7 +16,7 @@ fi
 
 
 # Put your fun stuff here.
-PATH=$HOME/.cabal/bin:$HOME/.local/bin:$PATH
+PATH=$HOME/.cabal/bin:$HOME/.local/bin:$HOME/bin:$PATH
 
 alias eqf='equery f'
 alias equ='equery u'
@@ -36,3 +36,10 @@ alias eqw='equery w'
 alias ..='cd ..'
 alias ...='cd ...'
 
+alias l='ls -l'
+alias ll='ls -al'
+alias lll='ls -altr'
+
+if [ -f $HOME/.bashrc_additional_config ]; then
+    source $HOME/.bashrc_additional_config
+fi
