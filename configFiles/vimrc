@@ -28,6 +28,11 @@ set shiftwidth=4
 set autoindent
 let g:airline#extensions#tabline#enabled = 1
 
+set backup
+set backupdir=~/tmp/vim
+set dir=~/tmp/vim
+
+
 set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 
@@ -53,6 +58,12 @@ Plugin 'slashmili/alchemist.vim'
 " === Elm ===
 
 Plugin 'elmcast/elm-vim'
+
+
+" === Misc ===
+
+Plugin 'tpope/vim-surround'
+
 let g:syntastic_check_on_open=1
 
 call vundle#end()

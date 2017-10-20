@@ -40,7 +40,11 @@ alias l='ls -l'
 alias ll='ls -al'
 alias lll='ls -altr'
 
+# fit window size
 alias f='feh --scale-down --auto-zoom'
+
+set -o vi
+
 
 if [ -f $HOME/.bashrc_additional_config ]; then
     source $HOME/.bashrc_additional_config
