@@ -43,6 +43,11 @@ alias lll='ls -altr'
 # fit window size
 alias f='feh --scale-down --auto-zoom'
 
+# installation
+# npm install -g diff2html
+# emerge -av dev-ruby/bcat
+alias bdiff="diff2html -i stdin -o stdout | bcat"
+
 set -o vi
 
 
