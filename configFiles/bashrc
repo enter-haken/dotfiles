@@ -43,12 +43,17 @@ alias lll='ls -altr'
 # fit window size
 alias f='feh --scale-down --auto-zoom'
 
+alias current="sudo genlop -c"
+
 # installation
 # npm install -g diff2html
 # emerge -av dev-ruby/bcat
 alias bdiff="diff2html -i stdin -o stdout | bcat"
 
 set -o vi
+
+# https://superuser.com/questions/479726/how-to-get-infinite-command-history-in-bash
+HISTSIZE="INFINITE"
 
 
 if [ -f $HOME/.bashrc_additional_config ]; then
