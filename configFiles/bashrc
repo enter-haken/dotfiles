@@ -50,6 +50,8 @@ alias current="sudo genlop -c"
 # emerge -av dev-ruby/bcat
 alias bdiff="diff2html -i stdin -o stdout | bcat"
 
+alias lcat="libreoffice --cat"
+
 set -o vi
 
 # https://superuser.com/questions/479726/how-to-get-infinite-command-history-in-bash
