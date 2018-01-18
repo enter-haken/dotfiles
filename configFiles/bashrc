@@ -14,6 +14,8 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
+export TERM=xterm-256color
+
 
 # Put your fun stuff here.
 PATH=$HOME/.cabal/bin:$HOME/.local/bin:$HOME/bin:$PATH
