@@ -59,6 +59,10 @@ Plugin 'slashmili/alchemist.vim'
 
 Plugin 'elmcast/elm-vim'
 
+" === Vue ===
+
+Plugin 'posva/vim-vue'
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 
