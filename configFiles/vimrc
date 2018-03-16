@@ -55,6 +55,10 @@ Plugin 'mxw/vim-jsx'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
 
+" === Erlang ===
+
+Plugin 'vim-erlang/vim-erlang-skeletons'
+
 " === Elm ===
 
 Plugin 'elmcast/elm-vim'
