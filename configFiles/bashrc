@@ -57,6 +57,13 @@ alias bdiff="diff2html -i stdin -o stdout | bcat"
 alias lcat="libreoffice --cat"
 
 alias cal="cal -m"
+
+# install gcalcli 
+# google command line calendar
+alias week="gcalcli calw"
+alias month="gcalcli calm"
+alias events="gcalcli agenda"
+
 set -o vi
 
 # https://superuser.com/questions/479726/how-to-get-infinite-command-history-in-bash
