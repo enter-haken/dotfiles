@@ -62,7 +62,7 @@ alias cal="cal -m"
 # google command line calendar
 alias week="gcalcli calw"
 alias month="gcalcli calm"
-alias events="gcalcli agenda"
+alias todo="gcalcli agenda"
 
 set -o vi
 
