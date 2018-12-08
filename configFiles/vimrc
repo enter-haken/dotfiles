@@ -21,16 +21,16 @@ colorscheme jellybeans
 set expandtab
 set cindent
 
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 
 set autoindent
 let g:airline#extensions#tabline#enabled = 1
 
 set backup
-set backupdir=~/tmp/vim
-set dir=~/tmp/vim
+set backupdir=./.backup,/tmp
+set dir=./.backup,/tmp
 
 
 set rtp+=~/.vim/bundle/vundle
