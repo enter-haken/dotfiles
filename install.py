@@ -2,7 +2,7 @@
 import os
 
 repoPath = os.path.dirname(os.path.abspath(__file__))
-configFilePath = os.path.join(repoPath, "configFiles")
+configFilePath = os.path.join(repoPath, "conf.avail")
 
 filesInRepository = [ f for f in os.listdir(configFilePath) ] 
 
