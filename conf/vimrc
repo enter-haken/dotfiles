@@ -1,9 +1,22 @@
 " set nocompatible
 filetype off
 
+" switch buffers without saving 
+set hidden
+
 set wildchar=<Tab> wildmenu wildmode=full
 
 set number
+
+" turn on mouse in all modes
+if has('mouse')
+    set mouse=a
+endif
+
+" set mapleader from backslash to comma
+let mapleader=','
+let maplocalleader=','
+
 
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
@@ -25,13 +38,17 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
+" ignore case in search when no uppercase search
+set incsearch
+set ignorecase
+set smartcase
+
 set autoindent
 let g:airline#extensions#tabline#enabled = 1
 
 set backup
 set backupdir=./.backup,/tmp
 set dir=./.backup,/tmp
-
 
 set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
@@ -41,19 +58,26 @@ Plugin 'gmarik/vundle'
 " === Plugins! ===
 
 Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim' 
+Plugin 'ctrlpvim/ctrlp.vim' 
+
+" add an artificial anchor to bigger projects to improve search experience
+let g:ctrlp_root_markers = ['.ctrlp_anchor']
+
 Plugin 'Raimondi/delimitMate'
 Plugin 'bling/vim-airline'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'pangloss/vim-javascript'
+" install liblibxml2-utils for xmllint
 Plugin 'scrooloose/syntastic'
 Plugin 'mxw/vim-jsx'
+Plugin 'alvan/vim-closetag'
 
 " === Elixir ===
 
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
+Plugin 'chiel92/vim-autoformat'
 
 " === Erlang ===
 
@@ -67,14 +91,18 @@ Plugin 'vim-erlang/vim-erlang-tags'
 
 Plugin 'elmcast/elm-vim'
 
+let g:elm_syntastic_show_warnings = 1
+
 " === Vue ===
 
 Plugin 'posva/vim-vue'
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+" === typesccript ===
 
-let g:elm_syntastic_show_warnings = 1
+" syntax highlightning
+Plugin 'leafgarland/typescript-vim' 
+Plugin 'shougo/vimproc.vim'
+
 
 " === Misc ===
 
@@ -82,20 +110,47 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mileszs/ack.vim'
 
+" === snippets === 
+
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
 let g:syntastic_check_on_open=1
 
-call vundle#end()
 
 let g:jsx_ext_required = 0 
 let g:syntastic_javascript_checkers = ['eslint']
 
-" recomendet Elm-Vim plugin settings
+" syntastic settings
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list  =1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
 
-let g:elm_syntastic_show_warnings = 1
+let g:syntastic_xml_checkers=['xmllint']
 
+
+call vundle#end()
+
+
+" ack settings
 let g:ackprg = 'ag --vimgrep --smart-case'
 cnoreabbrev ag Ack
 cnoreabbrev aG Ack
@@ -103,20 +158,20 @@ cnoreabbrev Ag Ack
 cnoreabbrev AG Ack
 
 filetype plugin indent on
-
 syntax on
 
 " == Without this setting cd is impossible
 " http://superuser.com/questions/401413/cant-open-folders-in-linux-nerdtree-vim
 let NERDTreeDirArrows=0
 
-nmap <F12> :NERDTreeToggle<CR>
-nmap <F11> :NERDTreeFind<CR>
-nmap <F10> :%!js-beautify -f -<CR>
-nmap <C-TAB> :bNext<CR>
+nmap <Leader>n :NERDTreeToggle<CR>
+nmap <Leader>f :NERDTreeFind<CR>
+nmap <Leader>b :bNext<CR>
 
-nnoremap <silent> ü : exe "vertical resize +5"<CR>
-nnoremap <silent> ä : exe "vertical resize -5"<CR>
+nmap <Leader>a :Autoformat<CR>
 
-nnoremap <silent> + : exe "resize +5"<CR>
-nnoremap <silent> - : exe "resize -5"<CR>
+nnoremap <Leader>l :exe "vertical resize +5"<CR>
+nnoremap <Leader>h :exe "vertical resize -5"<CR>
+
+nnoremap <Leader>j + : exe "resize +5"<CR>
+nnoremap <Leader>k - : exe "resize -5"<CR>
