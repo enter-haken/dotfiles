@@ -175,3 +175,6 @@ nnoremap <Leader>h :exe "vertical resize -5"<CR>
 
 nnoremap <Leader>j + : exe "resize +5"<CR>
 nnoremap <Leader>k - : exe "resize -5"<CR>
+
+" the word under the cursor is searched
+nnoremap <Leader>. :Ack<CR>
