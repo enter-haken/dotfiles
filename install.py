@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/usr/bin/env python
 import os
 
 repoPath = os.path.dirname(os.path.abspath(__file__))
