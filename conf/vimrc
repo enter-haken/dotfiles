@@ -1,7 +1,7 @@
 " set nocompatible
 filetype off
 
-" switch buffers without saving 
+" switch buffers without saving
 set hidden
 
 set wildchar=<Tab> wildmenu wildmode=full
@@ -10,7 +10,7 @@ set number
 
 " turn on mouse in all modes
 if has('mouse')
-    set mouse=a
+  set mouse=a
 endif
 
 " set mapleader from backslash to comma
@@ -58,10 +58,16 @@ Plugin 'gmarik/vundle'
 " === Plugins! ===
 
 Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim' 
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " add an artificial anchor to bigger projects to improve search experience
 let g:ctrlp_root_markers = ['.ctrlp_anchor']
+
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+endif
 
 Plugin 'Raimondi/delimitMate'
 Plugin 'bling/vim-airline'
@@ -100,9 +106,7 @@ Plugin 'posva/vim-vue'
 " === typesccript ===
 
 " syntax highlightning
-Plugin 'leafgarland/typescript-vim' 
-Plugin 'shougo/vimproc.vim'
-
+Plugin 'leafgarland/typescript-vim'
 
 " === Misc ===
 
@@ -110,7 +114,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mileszs/ack.vim'
 
-" === snippets === 
+" === snippets ===
 
 " Track the engine.
 Plugin 'SirVer/ultisnips'
@@ -129,8 +133,9 @@ let g:UltiSnipsEditSplit="vertical"
 let g:syntastic_check_on_open=1
 
 
-let g:jsx_ext_required = 0 
+let g:jsx_ext_required = 0
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_typescript_checkers = ["tscompletejob"]
 
 " syntastic settings
 
@@ -178,3 +183,6 @@ nnoremap <Leader>k - : exe "resize -5"<CR>
 
 " the word under the cursor is searched
 nnoremap <Leader>. :Ack<CR>
+
+nnoremap <Leader>vs :vsplit<CR>
+nnoremap <Leader>s :split<CR>

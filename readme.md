@@ -3,7 +3,7 @@ dotfiles
 
 These are my dot files.
 
-Put a symbolic link into `conf.avail` directory to enable a config
+Put a symbolic link into `conf.avail` directory to enable a config with
 
 ```
 $ ./install.py
@@ -26,6 +26,14 @@ install `conky` without `X` support
 
 * setup `xterm` colors
 * setup default colours
+
+# vimrc
+
+* mkdir -p .vim/bundle
+* git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
+* mkdir .vim/colors
+* https://raw.githubusercontent.com/nanotech/jellybeans.vaim/master/colors/jellybeans.vim
+
 
 
 ### Contact

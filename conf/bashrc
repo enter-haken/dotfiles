@@ -68,8 +68,16 @@ set -o vi
 
 # https://superuser.com/questions/479726/how-to-get-infinite-command-history-in-bash
 HISTSIZE="INFINITE"
+HISTCONTROL="ignoreboth"
 
 
 if [ -f $HOME/.bashrc_additional_config ]; then
     source $HOME/.bashrc_additional_config
 fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
