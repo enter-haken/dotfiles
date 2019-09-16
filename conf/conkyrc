@@ -1,3 +1,3 @@
 conky.text = [[
-${execi 8 bin/battery_power.sh} | ${time %d}.${time %m}.${time %Y} ${time %H}:${time %M} 
+${execi 8 ~/.local/bin/battery_power} | ${time %d}.${time %m}.${time %Y} ${time %H}:${time %M} 
 ]]
